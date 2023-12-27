@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <title>Airline Home</title>
+  </head>
+  <style>
+    .navbar-custom {
+      background-color: #284b63;
+    }
+    .navbar-custom .navbar-text,
+    .navbar-custom .navbar-nav .nav-link,
+    .navbar-custom .navbar-nav .nav-link .glyphicon {
+      color: white !important;
+    }
+
+    body {
+      padding: 20px;
+      background-color: #d9d9d9;
+      height: 90vh;
+    }
+
+    .section {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .custom-card {
+      display: flex;
+      justify-content: center;
+    }
+
+    label,
+    input {
+      padding: 10px;
+    }
+
+    .background-img {
+      background-image: url("https://app-static-prod-skyplus6e.goindigo.in/content/dam/skyplus6e/in/en/assets/homepage/HP_6Exclusive.jpg");
+      height: 700px;
+      width: 100%;
+    }
+  </style>
+
+  <body>
+    <!-- -- header  begins--  -->
+    <nav class="navbar navbar-inverse navbar-custom">
+      <p class="navbar-text">Airline Management System</p>
+      <div style="margin-right: 100px"></div>
+
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span style="padding-left: 5px">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="boarding-list.html">
+            <span class="glyphicon glyphicon-plane"></span>
+            <span style="padding-left: 5px">boarding-list</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="availability.html"
+            ><span class="glyphicon glyphicon-th-large"></span>
+            <span style="padding-left: 5px">availability</span></a
+          >
+        </li>
+
+        <li>
+          <a href="airline_feedback.html">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span style="padding-left: 5px">Feedback</span>
+          </a>
+        </li>
+        <li>
+          <a href="airline_signup.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">SignUp</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="airline_login.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">Login</span>
+          </a>
+        </li>
+        <!-- <li> 
+           <a onclick="logout()" >
+              <span class="glyphicon glyphicon-log-out"></span>
+            <span style="padding-left: 5px">Logout</span>
+          </a>
+
+        </li> -->
+      </ul>
+    </nav>
+    <!-- -- header ends --  -->
+
+    <!-- booking card  -->
+    <div class="section">
+      <div class="card">
+        <div class="card-body custom-card">
+          <form class="form-inline">
+            <div class="form-group mr-3">
+              <label for="inputFrom" class="mr-2">From</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputFrom"
+                placeholder="Departure"
+              />
+            </div>
+            <div class="form-group mr-3">
+              <label for="inputTo" class="mr-2">To</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputTo"
+                placeholder="Destination"
+              />
+            </div>
+            <div class="form-group mr-3">
+              <label for="inputDate" class="mr-2">Select Date</label>
+              <input type="date" class="form-control" id="inputDate" />
+            </div>
+            <div class="form-group mr-3">
+              <label for="inputAdults" class="mr-2">Adults</label>
+              <input
+                type="number"
+                class="form-control"
+                id="inputAdults"
+                placeholder="Number of Adults"
+              />
+            </div>
+            <div class="form-group mr-3">
+              <label for="inputChildren" class="mr-2">Children</label>
+              <input
+                type="number"
+                class="form-control"
+                id="inputChildren"
+                placeholder="Number of Children"
+              />
+            </div>
+            <div class="form-group mr-3">
+              <label for="inputTravelType" class="mr-2">Travel Type</label>
+              <select class="form-control" id="inputTravelType">
+                <option value="oneWay">One Way</option>
+                <option value="twoWay">Two Way</option>
+              </select>
+            </div>
+            <div
+              class="form-group mr-3"
+              id="returnDateField"
+              style="display: none"
+            >
+              <label for="inputReturnDate" class="mr-2">Return Date</label>
+              <input type="date" class="form-control" id="inputReturnDate" />
+            </div>
+            <button
+              onclick="searchFlights()"
+              type="submit"
+              class="btn btn-primary"
+            >
+              <a href="availability.html" style="color: white">
+                Search Flights</a
+              >
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- booking card -->
+
+    <div class="section background-img"></div>
+  </body>
+
+  <script>
+    function searchFlights() {
+      const formData = {
+        from: document.getElementById("inputFrom").value,
+        to: document.getElementById("inputTo").value,
+        date: document.getElementById("inputDate").value,
+        adults: document.getElementById("inputAdults").value,
+        children: document.getElementById("inputChildren").value,
+        travelType: document.getElementById("inputTravelType").value,
+        returnDate: document.getElementById("inputReturnDate").value,
+      };
+
+      localStorage.setItem("flightSearchData", JSON.stringify(formData));
+
+      // Redirect to availability.html
+      // window.location.href = "availability.html";
+    }
+
+    // Show or hide return date field based on travel type selection
+    document
+      .getElementById("inputTravelType")
+      .addEventListener("change", function () {
+        const returnDateField = document.getElementById("returnDateField");
+        returnDateField.style.display =
+          this.value === "twoWay" ? "block" : "none";
+      });
+  </script>
+</html>

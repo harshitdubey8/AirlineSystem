@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <title>boarding-list</title>
+  </head>
+  <style>
+    .navbar-custom {
+      background-color: #284b63;
+    }
+    .navbar-custom .navbar-text,
+    .navbar-custom .navbar-nav .nav-link,
+    .navbar-custom .navbar-nav .nav-link .glyphicon {
+      color: white !important;
+    }
+
+    body {
+      padding: 20px;
+      background-color: #d9d9d9;
+      height: 90vh;
+    }
+
+    .section {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .custom-card {
+      display: flex;
+      justify-content: center;
+    }
+
+    label,
+    input {
+      padding: 10px;
+    }
+
+    .background-img {
+      background-image: url("https://app-static-prod-skyplus6e.goindigo.in/content/dam/skyplus6e/in/en/assets/homepage/HP_6Exclusive.jpg");
+      height: 700px;
+      width: 100%;
+    }
+  </style>
+
+  <body>
+    <!-- -- header  begins--  -->
+    <nav class="navbar navbar-inverse navbar-custom">
+      <p class="navbar-text">Airline Management System</p>
+      <div style="margin-right: 100px"></div>
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span style="padding-left: 5px">Home</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="boarding-list.html">
+            <span class="glyphicon glyphicon-plane"></span>
+            <span style="padding-left: 5px">boarding-list</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="availability.html"
+            ><span class="glyphicon glyphicon-th-large"></span>
+            <span style="padding-left: 5px">availability</span></a
+          >
+        </li>
+
+        <li>
+          <a href="airline_feedback.html">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span style="padding-left: 5px">Feedback</span>
+          </a>
+        </li>
+        <li>
+          <a href="airline_signup.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">SignUp</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="airline_login.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">Login</span>
+          </a>
+        </li>
+        <!-- <li> 
+           <a onclick="logout()" >
+              <span class="glyphicon glyphicon-log-out"></span>
+            <span style="padding-left: 5px">Logout</span>
+          </a>
+
+        </li> -->
+      </ul>
+    </nav>
+    <!-- -- header ends --  -->
+
+    <div class="container">
+      <div class="section">
+        <h2>Flight Boarding List</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>STD</th>
+              <th>Airline</th>
+              <th>Flight No.</th>
+              <th>Destination</th>
+              <th>Gate</th>
+              <th>Status</th>
+              <th>ETD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15:40</td>
+              <td>Indigo</td>
+              <td>123 g09</td>
+              <td>Kerala</td>
+              <td>05</td>
+              <td>Scheduled</td>
+              <td>19:50</td>
+            </tr>
+            <tr>
+              <td>17:10</td>
+              <td>AirAsia</td>
+              <td>h67 709</td>
+              <td>Madurai</td>
+              <td>09</td>
+              <td>Security</td>
+              <td>18:10</td>
+            </tr>
+            <tr>
+              <td>17:20</td>
+              <td>Singapore Airlines</td>
+              <td>9W 2451</td>
+              <td>Mumbai</td>
+              <td>04</td>
+              <td>Scheduled</td>
+              <td>21:30</td>
+            </tr>
+            <tr>
+              <td>17:10</td>
+              <td>Emirates</td>
+              <td>00F 31</td>
+              <td>Delhi</td>
+              <td>02</td>
+              <td>Security</td>
+              <td>13:40</td>
+            </tr>
+            <tr>
+              <td>18:10</td>
+              <td>AirAsia</td>
+              <td>K67 209</td>
+              <td>Bombay</td>
+              <td>09</td>
+              <td>Scheduled</td>
+              <td>01:10</td>
+            </tr>
+            <tr>
+              <td>17:10</td>
+              <td>Emirates</td>
+              <td>GR3 31</td>
+              <td>Kochine</td>
+              <td>10</td>
+              <td>Security</td>
+              <td>14:40</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

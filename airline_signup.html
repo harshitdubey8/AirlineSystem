@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <title>SignUp</title>
+  </head>
+  <style>
+    .navbar-custom {
+      background-color: #284b63;
+    }
+    .navbar-custom .navbar-text,
+    .navbar-custom .navbar-nav .nav-link,
+    .navbar-custom .navbar-nav .nav-link .glyphicon {
+      color: white !important;
+    }
+
+    body {
+      padding: 20px;
+      background-color: #d9d9d9;
+      height: 90vh;
+    }
+
+    .section {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .custom-card {
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <body>
+    <!-- -- header  begins--  -->
+    <nav class="navbar navbar-inverse navbar-custom">
+      <p class="navbar-text">Airline Management System</p>
+      <div style="margin-right: 100px"></div>
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span style="padding-left: 5px">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="boarding-list.html">
+            <span class="glyphicon glyphicon-plane"></span>
+            <span style="padding-left: 5px">boarding-list</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="availability.html"
+            ><span class="glyphicon glyphicon-th-large"></span>
+            <span style="padding-left: 5px">availability</span></a
+          >
+        </li>
+
+        <li>
+          <a href="airline_feedback.html">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span style="padding-left: 5px">Feedback</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="airline_signup.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">SignUp</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="airline_login.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">Login</span>
+          </a>
+        </li>
+        <!-- <li> 
+           <a onclick="logout()" >
+              <span class="glyphicon glyphicon-log-out"></span>
+            <span style="padding-left: 5px">Logout</span>
+          </a>
+
+        </li> -->
+      </ul>
+    </nav>
+    <!-- -- header ends --  -->
+
+    <div class="container">
+      <div class="section center-data">
+        <div class="card" style="width: 38rem">
+          <h3>Sign Up</h3>
+          <p>Register for the hotel using the below form</p>
+          <form role="form">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter your Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pwd"> Create new password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="pwd"
+                placeholder="Enter password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pwd"> Mobile Number</label>
+              <input
+                type="number"
+                class="form-control"
+                id="phone"
+                placeholder="Enter password"
+              />
+            </div>
+
+            <button
+              onclick="signUpValidation()"
+              type="submit"
+              class="btn btn-danger"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const signUpValidation = () => {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("pwd").value;
+      let name = document.getElementById("name").value;
+      let phone = document.getElementById("phone").value;
+
+      if (email === "" || email.indexOf("@") === -1) {
+        alert("Please enter a valid email address");
+        return false;
+      } else if (password.length < 8) {
+        alert("Password must be at least 8 characters long");
+        return false;
+      } else if (name == " ") {
+        alert("Please Enter your name");
+        return false;
+      } else if (phone.length < 10) {
+        alert("Please Enter A Valid Phone Number");
+        return false;
+      }
+
+      localStorage.setItem("email", document.getElementById("email").value);
+      localStorage.setItem("password", document.getElementById("pwd").value);
+      localStorage.setItem("name", document.getElementById("name").value);
+      localStorage.setItem("phone", document.getElementById("phone").value);
+
+      alert("Account Created");
+      return true;
+    };
+  </script>
+</html>

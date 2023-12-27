@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <title>Feedback</title>
+  </head>
+  <style>
+    .navbar-custom {
+      background-color: #284b63;
+    }
+    .navbar-custom .navbar-text,
+    .navbar-custom .navbar-nav .nav-link,
+    .navbar-custom .navbar-nav .nav-link .glyphicon {
+      color: white !important;
+    }
+
+    body {
+      padding: 20px;
+      background-color: #d9d9d9;
+      height: 90vh;
+    }
+
+    .section {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .custom-card {
+      display: flex;
+      justify-content: center;
+    }
+
+    label,
+    input {
+      padding: 10px;
+    }
+
+    .background-img {
+      background-image: url("https://app-static-prod-skyplus6e.goindigo.in/content/dam/skyplus6e/in/en/assets/homepage/HP_6Exclusive.jpg");
+      height: 700px;
+      width: 100%;
+    }
+  </style>
+
+  <body>
+    <!-- -- header  begins--  -->
+    <nav class="navbar navbar-inverse navbar-custom">
+      <p class="navbar-text">Airline Management System</p>
+      <div style="margin-right: 100px"></div>
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span style="padding-left: 5px">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="boarding-list.html">
+            <span class="glyphicon glyphicon-plane"></span>
+            <span style="padding-left: 5px">boarding-list</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="availability.html"
+            ><span class="glyphicon glyphicon-th-large"></span>
+            <span style="padding-left: 5px">availability</span></a
+          >
+        </li>
+
+        <li class="active">
+          <a href="airline_feedback.html">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span style="padding-left: 5px">Feedback</span>
+          </a>
+        </li>
+        <li>
+          <a href="airline_signup.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">SignUp</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="airline_login.html">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="padding-left: 5px">Login</span>
+          </a>
+        </li>
+        <!-- <li> 
+           <a onclick="logout()" >
+              <span class="glyphicon glyphicon-log-out"></span>
+            <span style="padding-left: 5px">Logout</span>
+          </a>
+
+        </li> -->
+      </ul>
+    </nav>
+    <!-- -- header ends --  -->
+
+    <div class="container">
+      <div class="section">
+        <h2>Airline Feedback</h2>
+        <form>
+          <div class="form-group">
+            <label for="inputName">Your Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputEmail">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputFeedback">Your Feedback</label>
+            <textarea
+              class="form-control"
+              id="inputFeedback"
+              rows="5"
+              placeholder="Enter your feedback"
+            ></textarea>
+          </div>
+          <button
+            onclick="feedbackSubmitted()"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Submit Feedback
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    function isFormValid() {
+      var name = feedback.inputName.value;
+      var email = feedback.inputEmail.value;
+      var message = feedback.inputFeedback.value;
+      var isFormValid = true;
+
+      if (name == "") {
+        alert("name can't be empty");
+        isFormValid = false;
+        feedback.inputName.focus();
+        return;
+      } else if (email == "" || email.indexOf("@") === -1) {
+        alert("email can't be empty and must contain @");
+        isFormValid = false;
+        feedback.inputEmail.focus();
+        return;
+      }
+      if (message == "") {
+        alert("message can't be empty");
+        isFormValid = false;
+        feedback.inputFeedback.focus();
+        return;
+      }
+
+      return isFormValid;
+    }
+
+    function feedbackSubmitted() {
+      if (isFormValid()) {
+        alert("Form Submitted Successfully");
+      }
+    }
+  </script>
+</html>
